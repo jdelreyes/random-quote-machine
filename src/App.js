@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShareFromSquare, faQuoteLeft } from '@fortawesome/free-solid-svg-icons'
 
 function App() {
   const [quote, setQuote] = useState('');
@@ -46,7 +48,7 @@ function App() {
     }} className="d-flex flex-grow-1 justify-content-center align-items-center">
       <section
         id="quote-box"
-        className="p-5 border-0 rounded-4 m-2"
+        className="p-5 border-0 rounded-4 m-2 container"
       >
         <div className="d-flex flex-column">
           {loading ? <div class="spin-border m-5 mx-auto" role="status">
@@ -56,33 +58,34 @@ function App() {
               <header id="text" className="h4">
 
                 <h1 className="fw-bolder text-black">
-                  <span className="quotation-mark">"</span>&nbsp;&nbsp;&nbsp;{quote}
+                  <span className="fa-quote-left"><FontAwesomeIcon icon={faQuoteLeft} /></span>&nbsp;&nbsp;&nbsp;{quote}
                 </h1>
               </header>
               <h3 id="author" className="opacity-75 fst-italic text-right mt-5">- {author}&nbsp;&nbsp;&nbsp;</h3>
             </>}
         </div>
         <hr />
-        <div className="d-flex flex-column">
-          <button
-            id="new-quote"
-            onClick={fetchRandomQuote}
-            className="btn btn-outline-dark btn-lg"
-          >
-            Generate
-          </button>
-          <a
-            id="tweet-quote"
-            href={`https://twitter.com/intent/tweet?text=${quote}\n\n-${author}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-          </a>
-        </div>
-        <hr />
-        <div>
-          <div></div>
-          <div></div>
+        <div className="row justify-content-start">
+          <div className="col-11 d-flex justify-content-center align-items-center">
+            <button
+              id="new-quote"
+              onClick={fetchRandomQuote}
+              className="btn btn-outline-dark btn-lg w-100"
+            >
+              Generate
+            </button>
+          </div>
+          <div className="col-1 d-flex justify-content-center align-items-center">
+            <a
+              id="tweet-quote"
+              href={`https://twitter.com/intent/tweet?text=${quote}\n\n-${author}`}
+              target="_blank"
+              rel="noreferrer"
+              className="fs-1 text-black"
+            >
+              <FontAwesomeIcon icon={faShareFromSquare} />
+            </a>
+          </div>
         </div>
       </section >
     </div >

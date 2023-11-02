@@ -3,8 +3,8 @@
     width: 700px;
 }
 
-.quotation-mark {
+.fa-quote-left {
     font-family: 'Agbalumo', sans-serif !important;
     font-size: 5rem;
-    opacity: 100px;
+    opacity: 0.6;
 }

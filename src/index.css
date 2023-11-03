@@ -1,10 +1,17 @@
 #quote-box {
-    backdrop-filter: blur(200px);
+    backdrop-filter: blur(600px);
     width: 700px;
 }
 
+h1 {
+    font-family: 'Montserrat', sans-serif;
+}
+
 .fa-quote-left {
-    font-family: 'Agbalumo', sans-serif !important;
     font-size: 5rem;
     opacity: 0.6;
+}
+
+#new-quote {
+    font-family: 'Source Code Pro', sans-serif;
 }

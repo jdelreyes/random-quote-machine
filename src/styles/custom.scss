@@ -1,8 +1,17 @@
-// todo
-.btn-primary {
-    color: aliceblue;
-}
-
 .text-right {
     text-align: right;
+}
+
+.fade-in {
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

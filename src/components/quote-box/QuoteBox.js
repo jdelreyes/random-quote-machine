@@ -4,17 +4,18 @@ import { useState, useEffect } from 'react';
 import Share from '../share/Share';
 import Button from '../button/Button';
 import Header from '../layout/Header';
+import Container from '../container/Container';
 
 export default function QuoteBox(props) {
     const [quote, setQuote] = useState('');
     const [author, setAuthor] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const fetchRandomQuote = () => {
+    const fetchRandomQuote = async () => {
         setLoading(true);
         const apiUrl = "https://api.quotable.io/quotes/random";
 
-        fetch(apiUrl, {
+        await fetch(apiUrl, {
             method: 'GET'
         })
             .then((response) => {
@@ -42,10 +43,7 @@ export default function QuoteBox(props) {
     }, [])
 
     return (
-        <section
-            id="quote-box"
-            className="p-5 border-0 rounded-4 m-2 container"
-        >
+        <Container>
             <div className="d-flex flex-column">
                 {loading ? <div class="d-flex justify-content-center m-5 fs-1">
                     <div class="spinner-border" role="status">
@@ -65,6 +63,6 @@ export default function QuoteBox(props) {
                     <Share quote={quote} author={author} />
                 </div>
             </div>
-        </section>
+        </Container>
     );
 }

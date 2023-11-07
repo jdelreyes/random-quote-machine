@@ -1,9 +1,9 @@
-import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Header(props) {
 	return (
-		<header id='text' className='fade-in'>
+		<header id='text' className='fade-in mb-4'>
 			<h1 className='visually-hidden'>Random Quote Machine</h1>
 			<p className='fw-bolder text-black h1'>
 				<span className='fa-quote-left '>

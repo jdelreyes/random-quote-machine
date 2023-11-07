@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import Button from "../button/Button";
 import Container from "../container/Container";
 import Error from "../error/Error";
-import Header from "../layout/Header";
 import { fetchApiQuote } from "../service/fetchApi";
-import Share from "../share/Share";
+import ActionsBox from "./ActionsBox";
+import Box from "./Box";
 
-export default function QuoteBox(props) {
+export default function QuoteBox({ generateBackgroundImage }) {
 	// ~ 3 should-have useStates when it comes to data fetching ~
 	const [quoteData, setQuoteData] = useState({ quote: "", author: "" });
 	const [isLoading, setIsLoading] = useState(false);
@@ -35,7 +34,7 @@ export default function QuoteBox(props) {
 					author: randomQuote?.author,
 				});
 
-				// *** (mistake desc by jay: this component will render twice when using setStates like below => bad performance i just realized) :< ***
+				// *** (mistake desc by jay: this component will render twice when using setStates like below => bad performance) :< ***
 				// setQuote(randomQuote.content);
 				// setAuthor(randomQuote.author);
 			}
@@ -70,29 +69,13 @@ export default function QuoteBox(props) {
 
 	return (
 		<Container>
-			<div className='d-flex flex-column'>
-				{isLoading ? (
-					<div className='d-flex justify-content-center m-5 fs-1'>
-						<div className='spinner-border' role='status'>
-							<span className='sr-only'>Loading...</span>
-						</div>
-					</div>
-				) : (
-					<Header quote={quote} author={author} />
-				)}
-			</div>
-			<hr />
-			<div className='row justify-content-start'>
-				<div className='col-11 d-flex justify-content-center align-items-center'>
-					<Button
-						fetchRandomQuote={fetchRandomQuote}
-						generateBackgroundImage={props.generateBackgroundImage}
-					></Button>
-				</div>
-				<div className='col-1 d-flex justify-content-center align-items-center'>
-					<Share quote={quote} author={author} />
-				</div>
-			</div>
+			<Box isLoading={isLoading} quote={quote} author={author} />
+			<ActionsBox
+				fetchRandomQuote={fetchRandomQuote}
+				quote={quote}
+				author={author}
+				generateBackgroundImage={generateBackgroundImage}
+			/>
 		</Container>
 	);
 }

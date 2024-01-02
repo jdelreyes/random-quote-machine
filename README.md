@@ -1,5 +1,5 @@
 # Random Quote Machine
-The [Random Quote Machine](https://siomao.github.io/random-quote-machine/) application elevates your day by generating random quotes. Simply click the `Generate` button to regenerate a quote.
+The [Random Quote Machine](https://jdelreyes.github.io/random-quote-machine/) application elevates your day by generating random quotes. Simply click the `Generate` button to regenerate a quote.
 
 ![Random Quote Machine](docs/demo.gif "Random Quote Machine")
 
